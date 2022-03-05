@@ -1,0 +1,1 @@
+"Tools/Sharpmake/Sharpmake.Application.exe" "/sources('ChipEight.sharpmake.cs')"
