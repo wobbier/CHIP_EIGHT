@@ -1,9 +1,12 @@
 #include "Window.h"
 
-Window::Window()
+Window::Window(const char* inName, int inWidth, int inHeight)
+    : Width(inWidth)
+    , Height(inHeight)
 {
     SDL_Init(SDL_INIT_EVERYTHING);
-    WindowPtr = SDL_CreateWindow("ChipEight", 200, 200, 800, 600, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+    WindowPtr = SDL_CreateWindow(inName, 200, 200, Width, Height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+    Renderer = SDL_CreateRenderer(WindowPtr, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
 }
 
 void Window::ProcessEvents()

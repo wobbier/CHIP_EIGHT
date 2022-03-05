@@ -19,6 +19,7 @@ public class BaseGameProject : BaseProject
         base.ConfigureAll(conf, target);
         conf.Output = Configuration.OutputType.Exe;
         conf.SolutionFolder = "App";
+        conf.VcxprojUserFile.LocalDebuggerWorkingDirectory = "$(OutDir)";
 
         conf.IncludePaths.Add("[project.SourceRootPath]");
         SDL.ConfigureAll(conf, target);
