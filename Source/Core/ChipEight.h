@@ -13,14 +13,37 @@ struct ChipEight
     bool LoadProgram(const char* inPath);
 
     void EmulateCycle();
+    
+    // opcode
+    unsigned short OpCode = 0;
 
+    // Memory
+    unsigned char Data[kMemorySize];
+
+    // V
+    unsigned char Registers[16];
+
+    // Index Register
+    unsigned short RegisterIndex = 0;
+
+    // Program Counter
     unsigned short ProgramCounter = 0x200;
-    unsigned char OpCode = 0;
-    unsigned char RegisterIndex = 0;
-    unsigned char StackPointer = 0;
-    char Data[kMemorySize];
-    char GfxBuffer[64 * 32];
 
+    // GFX
+    unsigned char GfxBuffer[64 * 32];
+
+    // Timers
+    unsigned char DelayTimer = 0;
+    unsigned char SoundTimer = 0;
+
+    // Stack
+    unsigned short Stack[16];
+    unsigned short StackPointer = 0;
+
+    // Keys
+    unsigned char Key[16];
+
+    // Font
     unsigned char Font[80] =
     {
       0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
